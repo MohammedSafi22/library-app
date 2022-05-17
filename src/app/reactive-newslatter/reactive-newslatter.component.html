@@ -1,0 +1,27 @@
+<h2>Email Newslatter</h2>
+<form [formGroup]="emailFrm" (ngSubmit)="onFormSubmit()">
+ <div>
+     <input formControlName="email" type="text">
+     <p class="text-danger"
+     *ngIf="email?.errors?.['required']">
+         Email is required
+     </p>
+     <p class="text-danger"
+     *ngIf="email?.errors?.['pattern']">
+         Enter a valid email
+     </p>
+ </div>
+ <div>
+    <input formControlName="email" type="text">
+    <p class="text-danger"
+    *ngIf="name?.errors?.['required']">
+        Name is required
+    </p>
+    <p class="text-danger"
+    *ngIf="name?.errors?.['pattern']">
+        Enter a valid name
+    </p>
+ </div>
+ <button [disabled]="!emailFrm.valid" type="submit">submit</button>
+
+</form>
